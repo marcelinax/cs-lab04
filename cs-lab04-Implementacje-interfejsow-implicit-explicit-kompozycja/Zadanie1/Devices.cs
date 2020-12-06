@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace ver1
+namespace Zadanie1
 {
     public interface IDevice
     {
@@ -11,7 +11,7 @@ namespace ver1
         State GetState(); // zwraca aktualny stan urządzenia
 
         int Counter {get;}  // zwraca liczbę charakteryzującą eksploatację urządzenia,
-                            // np. liczbę uruchomień, liczbę wydrukow, liczbę skanów, ...
+        // np. liczbę uruchomień, liczbę wydrukow, liczbę skanów, ...
     }
 
     public abstract class BaseDevice : IDevice
