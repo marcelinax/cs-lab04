@@ -6,14 +6,14 @@ namespace Zadanie1
     {
         public int PrintCounter { get; private set; } = 0;
         public int ScanCounter { get; private set; } = 0;
-        public int Counter { get; }
+        public int Counter { get; private set; } = 0;
 
         public void Print(in IDocument document)
         {
             if (state == IDevice.State.on)
             {
+                Console.WriteLine($"{DateTime.Now}, Print: {document.GetFileName()}");
                 PrintCounter++;
-                Console.WriteLine($"{DateTime.Today}, Print: {document.GetFileName()}");
             }
         }
 
@@ -31,26 +31,29 @@ namespace Zadanie1
                 case IDocument.FormatType.JPG:
                     type = "Image";
                     break;
+                default:
+                    throw new Exception("Incorrect format!");
             }
 
-            string nameOfFile = string.Format($"{type}Scan{ScanCounter++}.{formatType.ToString().ToLower()}");
+            string nameOfFile = string.Format($"{type}Scan{ScanCounter}.{formatType.ToString().ToLower()}");
 
             if(formatType == IDocument.FormatType.TXT) document = new TextDocument(nameOfFile);
             if(formatType == IDocument.FormatType.JPG) document = new ImageDocument(nameOfFile);
             else document = new PDFDocument(nameOfFile);
             if (state == IDevice.State.on)
             {
-
+                Console.WriteLine($"{DateTime.Now}, Scan: {document.GetFileName()}");
                 ScanCounter++;
-                Console.WriteLine($"{DateTime.Today}, Scan: {document.GetFileName()}");
             }
         }
 
-
         public void ScanAndPrint()
         {
-                Scan(out IDocument doc);
-                Print(doc);
+            if (state == IDevice.State.on)
+            {
+                Scan(out IDocument document, IDocument.FormatType.JPG);
+                Print(document);
+            }
         }
     }
 }
