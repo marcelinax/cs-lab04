@@ -8,6 +8,12 @@ namespace Zadanie1
         public int ScanCounter { get; private set; } = 0;
         public int Counter { get; private set; } = 0;
 
+        public void PowerOn()
+        {
+            Counter++;
+            base.PowerOn();
+        }
+
         public void Print(in IDocument document)
         {
             if (state == IDevice.State.on)
@@ -17,7 +23,7 @@ namespace Zadanie1
             }
         }
 
-        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.JPG)
+        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.PDF)
         {
             string type = "";
             switch (formatType)
@@ -44,6 +50,7 @@ namespace Zadanie1
             {
                 Console.WriteLine($"{DateTime.Now}, Scan: {document.GetFileName()}");
                 ScanCounter++;
+                
             }
         }
 

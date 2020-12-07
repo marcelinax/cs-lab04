@@ -16,7 +16,6 @@ namespace Zadanie1
             copier.ScanAndPrint();
             Console.WriteLine(copier.PrintCounter);
             Console.WriteLine(copier.ScanCounter);
-            copier.PowerOff();
             Console.WriteLine(copier.Counter);
         }
     }
