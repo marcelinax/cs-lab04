@@ -5,6 +5,7 @@ namespace Zadanie3
     public class Printer: IPrinter
     {
         public int Counter { get; private set; } = 0;
+        public int PrintCounter { get; private set; } = 0;
         public IDevice.State state = IDevice.State.off;
         public IDevice.State GetState()
         {
@@ -27,7 +28,7 @@ namespace Zadanie3
             if (state == IDevice.State.on)
             {
                 Console.WriteLine($"{DateTime.Now}, Print: {document.GetFileName()}");
-                Counter++;
+                PrintCounter++;
             }   
         }
     }

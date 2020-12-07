@@ -30,17 +30,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4af29d8e-c763-4304-aca0-a7ba615ff274" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Zadanie3/Copier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Zadanie3/Devices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Zadanie3/Documents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Zadanie3/Printer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Zadanie3/Scanner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.cs-lab04/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cs-lab04/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.cs-lab04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cs-lab04/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zadanie1UnitTests/obj/Debug/netcoreapp3.1/Zadanie1UnitTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Zadanie1UnitTests/obj/Debug/netcoreapp3.1/Zadanie1UnitTests.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zadanie2/obj/Debug/netcoreapp3.1/Zadanie2.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Zadanie2/obj/Debug/netcoreapp3.1/Zadanie2.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zadanie2UnitTests/obj/Debug/netcoreapp3.1/Zadanie2UnitTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Zadanie2UnitTests/obj/Debug/netcoreapp3.1/Zadanie2UnitTests.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs-lab04.sln" beforeDir="false" afterPath="$PROJECT_DIR$/cs-lab04.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zadanie3/Copier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Zadanie3/Copier.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +52,11 @@
         <option value="$PROJECT_DIR$/Zadanie2/MultifunctionalDevice.cs" />
         <option value="$PROJECT_DIR$/Zadanie2UnitTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Program.cs" />
-        <option value="$PROJECT_DIR$/Zadanie3/Copier.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Documents.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Devices.cs" />
-        <option value="$PROJECT_DIR$/Zadanie3/Scanner.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Printer.cs" />
+        <option value="$PROJECT_DIR$/Zadanie3/Scanner.cs" />
+        <option value="$PROJECT_DIR$/Zadanie3/Copier.cs" />
       </list>
     </option>
   </component>
@@ -150,7 +141,7 @@
       <workItem from="1607335390398" duration="84000" />
       <workItem from="1607335488182" duration="40000" />
       <workItem from="1607335545080" duration="3939000" />
-      <workItem from="1607342213176" duration="1118000" />
+      <workItem from="1607342213176" duration="2189000" />
     </task>
     <servers />
   </component>

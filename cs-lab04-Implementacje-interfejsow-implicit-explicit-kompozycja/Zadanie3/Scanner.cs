@@ -4,6 +4,7 @@ namespace Zadanie3
     public class Scanner: IScanner
     {
         public int Counter { get; private set; } = 0;
+        public int ScanCounter { get; private set; } = 0;
         public IDevice.State state = IDevice.State.off;
 
         public IDevice.State GetState()
@@ -36,7 +37,7 @@ namespace Zadanie3
                     throw new Exception("Incorrect format!");
             }
 
-            string nameOfFile = string.Format($"{type}Scan{Counter}.{formatType.ToString().ToLower()}");
+            string nameOfFile = string.Format($"{type}Scan{ScanCounter}.{formatType.ToString().ToLower()}");
 
             if(formatType == IDocument.FormatType.TXT) document = new TextDocument(nameOfFile);
             if(formatType == IDocument.FormatType.JPG) document = new ImageDocument(nameOfFile);
@@ -44,13 +45,8 @@ namespace Zadanie3
             if (state == IDevice.State.on)
             {
                 Console.WriteLine($"{DateTime.Now}, Scan: {document.GetFileName()}");
-                Counter++;
+                ScanCounter++;
             }
-        }
-
-        public void Scan(out IDocument document)
-        {
-            Scan(out document, IDocument.FormatType.JPG);
         }
     }
 }
