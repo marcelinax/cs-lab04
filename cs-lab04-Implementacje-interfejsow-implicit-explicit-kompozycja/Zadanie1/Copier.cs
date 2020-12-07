@@ -10,8 +10,8 @@ namespace Zadanie1
 
         public void PowerOn()
         {
-            Counter++;
             base.PowerOn();
+            Counter++;
         }
 
         public void Print(in IDocument document)
