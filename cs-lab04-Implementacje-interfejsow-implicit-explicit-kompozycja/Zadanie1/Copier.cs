@@ -41,7 +41,7 @@ namespace Zadanie1
                     throw new Exception("Incorrect format!");
             }
 
-            string nameOfFile = string.Format($"{type}Scan{ScanCounter}.{formatType.ToString().ToLower()}");
+            string nameOfFile = string.Format($"{type}Scan{ScanCounter + 1}.{formatType.ToString().ToLower()}");
 
             if(formatType == IDocument.FormatType.TXT) document = new TextDocument(nameOfFile);
             if(formatType == IDocument.FormatType.JPG) document = new ImageDocument(nameOfFile);
