@@ -30,9 +30,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4af29d8e-c763-4304-aca0-a7ba615ff274" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Zadanie3/Fax.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Zadanie3/MultifunctionalDevice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.cs-lab04/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cs-lab04/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zadanie3/MultifunctionalDevice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Zadanie3/MultifunctionalDevice.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +47,17 @@
         <option value="$PROJECT_DIR$/Zadanie1UnitTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/Zadanie2/Program.cs" />
         <option value="$PROJECT_DIR$/Zadanie2/IFax.cs" />
-        <option value="$PROJECT_DIR$/Zadanie2/MultifunctionalDevice.cs" />
         <option value="$PROJECT_DIR$/Zadanie2UnitTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Documents.cs" />
-        <option value="$PROJECT_DIR$/Zadanie3/Devices.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Printer.cs" />
         <option value="$PROJECT_DIR$/Zadanie1/Program.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Scanner.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Program.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Copier.cs" />
-        <option value="$PROJECT_DIR$/Zadanie3/MultifunctionalDevice.cs" />
+        <option value="$PROJECT_DIR$/Zadanie3/Devices.cs" />
+        <option value="$PROJECT_DIR$/Zadanie2/MultifunctionalDevice.cs" />
         <option value="$PROJECT_DIR$/Zadanie3/Fax.cs" />
+        <option value="$PROJECT_DIR$/Zadanie3/MultifunctionalDevice.cs" />
       </list>
     </option>
   </component>
@@ -144,7 +142,7 @@
       <workItem from="1607335390398" duration="84000" />
       <workItem from="1607335488182" duration="40000" />
       <workItem from="1607335545080" duration="3939000" />
-      <workItem from="1607342213176" duration="4076000" />
+      <workItem from="1607342213176" duration="4559000" />
     </task>
     <servers />
   </component>
