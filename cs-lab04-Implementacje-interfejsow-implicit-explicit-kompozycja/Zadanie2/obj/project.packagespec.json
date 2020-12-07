@@ -15,7 +15,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "D:\\Studia\\Programowanie obiektowe - lab\\cs-lab04-Implementacje-interfejsow-implicit-explicit-kompozycja\\cs-lab04-Implementacje-interfejsow-implicit-explicit-kompozycja\\Zadanie1\\Zadanie1.csproj": {
+            "projectPath": "D:\\Studia\\Programowanie obiektowe - lab\\cs-lab04-Implementacje-interfejsow-implicit-explicit-kompozycja\\cs-lab04-Implementacje-interfejsow-implicit-explicit-kompozycja\\Zadanie1\\Zadanie1.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
