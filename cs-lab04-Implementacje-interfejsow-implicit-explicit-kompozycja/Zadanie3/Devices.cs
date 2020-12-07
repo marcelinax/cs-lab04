@@ -50,5 +50,9 @@ namespace Zadanie3
         // w przeciwnym przypadku nic się dzieje
         void Scan(out IDocument document, IDocument.FormatType formatType);
     }
+    public interface IFax: IDevice
+    {
+        public void SendFax(in IDocument document, string faxNumber);
+    }
 
 }
