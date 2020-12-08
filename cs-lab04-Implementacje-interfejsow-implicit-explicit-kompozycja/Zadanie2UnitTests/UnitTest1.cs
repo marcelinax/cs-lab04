@@ -31,257 +31,90 @@ namespace Zadanie2UnitTests
         }
     }
 
-
     [TestClass]
     public class UnitTestMultifunctionalDevice
     {
         [TestMethod]
-        public void MultifunctionalDevice_GetState_StateOff()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOff();
-
-            Assert.AreEqual(IDevice.State.off, device.GetState()); 
-        }
-
-        [TestMethod]
-        public void MultifunctionalDevice_GetState_StateOn()
+        public void MultifunctionalDevice_SendFaxCounter()
         {
             var device = new MultifunctionalDevice();
             device.PowerOn();
-
-            Assert.AreEqual(IDevice.State.on, device.GetState());
-        }
-
-
-        // weryfikacja, czy po wywołaniu metody `Print` i włączonej kopiarce w napisie pojawia się słowo `Print`
-        // wymagane przekierowanie konsoli do strumienia StringWriter
-        [TestMethod]
-        public void MultifunctionalDevice_Print_DeviceOn()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOn();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using( var consoleOutput = new ConsoleRedirectionToStringWriter() )
-            {
-                IDocument doc1 = new PDFDocument("aaa.pdf");
-                device.Print(in doc1);
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Print"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);   
-        }
-
-        // weryfikacja, czy po wywołaniu metody `Print` i wyłączonej kopiarce w napisie NIE pojawia się słowo `Print`
-        // wymagane przekierowanie konsoli do strumienia StringWriter
-        [TestMethod]
-        public void MultifunctionalDevice_Print_DeviceOff()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOff();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
-            {
-                IDocument doc1 = new PDFDocument("aaa.pdf");
-                device.Print(in doc1);
-                Assert.IsFalse(consoleOutput.GetOutput().Contains("Print"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);
-        }
-
-        // weryfikacja, czy po wywołaniu metody `Scan` i wyłączonej kopiarce w napisie NIE pojawia się słowo `Scan`
-        // wymagane przekierowanie konsoli do strumienia StringWriter
-        [TestMethod]
-        public void MultifunctionalDevice_Scan_DeviceOff()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOff();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
-            {
-                IDocument doc1;
-                device.Scan(out doc1);
-                Assert.IsFalse(consoleOutput.GetOutput().Contains("Scan"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);
-        }
-
-        // weryfikacja, czy po wywołaniu metody `Scan` i wyłączonej kopiarce w napisie pojawia się słowo `Scan`
-        // wymagane przekierowanie konsoli do strumienia StringWriter
-        [TestMethod]
-        public void MultifunctionalDevice_Scan_DeviceOn()
-        {
-            var device = new MultifunctionalDevice();
-           device.PowerOn();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
-            {
-                IDocument doc1;
-                device.Scan(out doc1);
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);
-        }
-
-        // weryfikacja, czy wywołanie metody `Scan` z parametrem określającym format dokumentu
-        // zawiera odpowiednie rozszerzenie (`.jpg`, `.txt`, `.pdf`)
-        [TestMethod]
-        public void MultifunctionalDevice_Scan_FormatTypeDocument()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOn();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
-            {
-                IDocument doc1;
-                device.Scan(out doc1, formatType: IDocument.FormatType.JPG);
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
-                Assert.IsTrue(consoleOutput.GetOutput().Contains(".jpg"));
-
-                device.Scan(out doc1, formatType: IDocument.FormatType.TXT);
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
-                Assert.IsTrue(consoleOutput.GetOutput().Contains(".txt"));
-
-                device.Scan(out doc1, formatType: IDocument.FormatType.PDF);
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
-                Assert.IsTrue(consoleOutput.GetOutput().Contains(".pdf"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);
-        }
-
-
-        // weryfikacja, czy po wywołaniu metody `ScanAndPrint` i wyłączonej kopiarce w napisie pojawiają się słowa `Print`
-        // oraz `Scan`
-        // wymagane przekierowanie konsoli do strumienia StringWriter
-        [TestMethod]
-        public void MultifunctionalDevice_ScanAndPrint_DeviceOn()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOn();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
-            {
-                device.ScanAndPrint();
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
-                Assert.IsTrue(consoleOutput.GetOutput().Contains("Print"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);
-        }
-
-        // weryfikacja, czy po wywołaniu metody `ScanAndPrint` i wyłączonej kopiarce w napisie NIE pojawia się słowo `Print`
-        // ani słowo `Scan`
-        // wymagane przekierowanie konsoli do strumienia StringWriter
-        [TestMethod]
-        public void MultifunctionalDevice_ScanAndPrint_DeviceOff()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOff();
-
-            var currentConsoleOut = Console.Out;
-            currentConsoleOut.Flush();
-            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
-            {
-                device.ScanAndPrint();
-                Assert.IsFalse(consoleOutput.GetOutput().Contains("Scan"));
-                Assert.IsFalse(consoleOutput.GetOutput().Contains("Print"));
-            }
-            Assert.AreEqual(currentConsoleOut, Console.Out);
-        }
-
-        [TestMethod]
-        public void CMultifunctionalDevice_PrintCounter()
-        {
-            var device = new MultifunctionalDevice();
-            device.PowerOn();
-
+            
             IDocument doc1 = new PDFDocument("aaa.pdf");
-            device.Print(in doc1);
-            IDocument doc2 = new TextDocument("aaa.txt");
-            device.Print(in doc2);
-            IDocument doc3 = new ImageDocument("aaa.jpg");
-            device.Print(in doc3);
-
+            string faxNumber = "12345";
+            device.SendFax(in doc1,faxNumber);
+            IDocument doc2 = new ImageDocument("p.jpg");
+            device.SendFax(in doc2, "09876");
+            IDocument doc3 = new TextDocument("aaa.txt");
+            device.SendFax(in doc3, "45678899");
             device.PowerOff();
-            device.Print(in doc3);
-            device.Scan(out doc1);
-            device.PowerOn();
-
-            device.ScanAndPrint();
-            device.ScanAndPrint();
-
-            // 5 wydruków, gdy urządzenie włączone
-            Assert.AreEqual(5, device.PrintCounter);
+            
+            // 3 faxy kiedy urządzenie jest włączone
+            Assert.AreEqual(3, device.SendFaxCounter);
         }
-
         [TestMethod]
-        public void MultifunctionalDevice_ScanCounter()
+        public void MultifunctionalDevice_SendFax_DeviceOn()
         {
             var device = new MultifunctionalDevice();
             device.PowerOn();
 
-            IDocument doc1;
-            device.Scan(out doc1);
-            IDocument doc2;
-            device.Scan(out doc2);
-
-            IDocument doc3 = new ImageDocument("aaa.jpg");
-            device.Print(in doc3);
-
-            device.PowerOff();
-            device.Print(in doc3);
-            device.Scan(out doc1);
-            device.PowerOn();
-
-            device.ScanAndPrint();
-            device.ScanAndPrint();
-
-            // 4 skany, gdy urządzenie włączone
-            Assert.AreEqual(4, device.ScanCounter);
+            var currentConsoleOut = Console.Out;
+            currentConsoleOut.Flush();
+            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
+            {
+                device.ScanAndSendFax("1234455566");
+                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
+                Assert.IsTrue(consoleOutput.GetOutput().Contains("Fax"));
+            }
+            Assert.AreEqual(currentConsoleOut, Console.Out);
         }
-
         [TestMethod]
-        public void MultifunctionalDevice_PowerOnCounter()
+        public void MultifunctionalDevice_SendFax_DeviceOff()
+        {
+            var device = new MultifunctionalDevice();
+            device.PowerOff();
+
+            var currentConsoleOut = Console.Out;
+            currentConsoleOut.Flush();
+            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
+            {
+                device.ScanAndSendFax("1234455566");
+                Assert.IsFalse(consoleOutput.GetOutput().Contains("Scan"));
+                Assert.IsFalse(consoleOutput.GetOutput().Contains("Fax"));
+            }
+            Assert.AreEqual(currentConsoleOut, Console.Out);
+        }
+        [TestMethod]
+        public void MultifunctionalDevice_ScanAndSendFax_DeviceOn()
         {
             var device = new MultifunctionalDevice();
             device.PowerOn();
-            device.PowerOn();
-            device.PowerOn();
 
-            IDocument doc1;
-            device.Scan(out doc1);
-            IDocument doc2;
-            device.Scan(out doc2);
-
-            device.PowerOff();
-            device.PowerOff();
-            device.PowerOff();
-            device.PowerOn();
-
-            IDocument doc3 = new ImageDocument("aaa.jpg");
-            device.Print(in doc3);
-
-            device.PowerOff();
-            device.Print(in doc3);
-            device.Scan(out doc1);
-            device.PowerOn();
-
-            device.ScanAndPrint();
-            device.ScanAndPrint();
-
-            // 5 włączeń
-            Assert.AreEqual(5, device.Counter);
+            var currentConsoleOut = Console.Out;
+            currentConsoleOut.Flush();
+            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
+            {
+                device.ScanAndSendFax("1234455566");
+                Assert.IsTrue(consoleOutput.GetOutput().Contains("Scan"));
+                Assert.IsTrue(consoleOutput.GetOutput().Contains("Fax"));
+            }
+            Assert.AreEqual(currentConsoleOut, Console.Out);
         }
+        [TestMethod]
+        public void MultifunctionalDevice_ScanAndSendFax_DeviceOff()
+        {
+            var device = new MultifunctionalDevice();
+            device.PowerOff();
 
+            var currentConsoleOut = Console.Out;
+            currentConsoleOut.Flush();
+            using (var consoleOutput = new ConsoleRedirectionToStringWriter())
+            {
+                device.ScanAndSendFax("1234455566");
+                Assert.IsFalse(consoleOutput.GetOutput().Contains("Scan"));
+                Assert.IsFalse(consoleOutput.GetOutput().Contains("Fax"));
+            }
+            Assert.AreEqual(currentConsoleOut, Console.Out);
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Zadanie3
         {
             state = IDevice.State.on;
             Counter++;
-        }
+        }    
 
         public void PowerOff()
         {

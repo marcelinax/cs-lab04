@@ -86,6 +86,18 @@
         <e p="Scanner.cs" t="Include" />
         <e p="Zadanie3.csproj" t="IncludeRecursive" />
       </e>
+      <e p="Zadanie3UnitTests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Zadanie3UnitTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UnitTest1.cs" t="Include" />
+        <e p="Zadanie3UnitTests.csproj" t="IncludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
